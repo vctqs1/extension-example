@@ -17,13 +17,12 @@
   "chrome_url_overrides" : {
     "newtab": "index.html"
   },
-	"permissions": ["activeTab", "declarativeContent", "storage", "tabs",
-		"notifications",
+	"permissions": ["activeTab", "declarativeContent", "storage", "tabs", "notifications",
 		"http://*/*",
 		"https://*/*"
 	],
   "background": {
-    "scripts": ["jquery-3.4.1.min.js", "background.js"],
+    "scripts": ["background.js"],
     "persistent": false
   }
 }
