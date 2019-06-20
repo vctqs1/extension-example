@@ -5,8 +5,10 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const app = express();
-const dbRoute = "mongodb://admin:marketing2019@ds125994.mlab.com:25994/marketing";
+const dbRoute = "mongodb://localhost:27017/extension-youtube";
+// const dbRoute = "mongodb://@ds247670.mlab.com:47670/extension-youtube";
 const cors = require('cors')
+const Route = require('./router');
 mongoose.connect(
     dbRoute,
     { useNewUrlParser: true }
@@ -30,10 +32,11 @@ const html = process.env.DEV ? 'public' : 'build';
 app.use(express.static(path.join(__dirname, `client/${html}`)));
 
 // Handles any requests that don't match the ones above
-app.get('*', (req, res) =>{
+app.get('/', (req, res) =>{
     res.sendFile(path.join(__dirname, `/client/${html}/index.html`));
 });
 
+app.use('/api', Route);
 
 const port = process.env.PORT || 5000;
 app.listen(port);

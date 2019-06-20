@@ -2,13 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { render } from 'react-dom';
 
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { Provider } from "react-redux";
 import { init } from "@rematch/core";
 import * as serviceWorker from './serviceWorker';
 import * as models from "./models";
 import './index.scss';
+import 'bootstrap/dist/css/bootstrap.css';
+
+import Content from './pages';
 
 const store = init({
     models
@@ -16,7 +19,9 @@ const store = init({
 render((
     <Provider store={store}>
         <BrowserRouter>
-            HELLO
+            <Switch>
+                <Route path="/" render={(props) => <Content {...props} />}/>
+            </Switch>
         </BrowserRouter>
     </Provider>
 ), document.getElementById('root'));

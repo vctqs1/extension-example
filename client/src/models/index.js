@@ -1,3 +1,5 @@
 import settings from './settings'
+import videos from './videos'
+import categories from './categories'
 
-export {settings}
+export {settings, videos, categories}
