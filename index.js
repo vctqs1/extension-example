@@ -6,7 +6,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const app = express();
 // const dbRoute = "mongodb://localhost:27017/extension-youtube";
-const dbRoute = "mongodb://@ds247670.mlab.com:47670/extension-youtube";
+const dbRoute = "mongodb://ds247670.mlab.com:47670/extension-youtube";
 const cors = require('cors')
 const Route = require('./router');
 mongoose.connect(
