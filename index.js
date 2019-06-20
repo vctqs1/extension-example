@@ -6,7 +6,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const app = express();
 // const dbRoute = "mongodb://localhost:27017/extension-youtube";
-const dbRoute = "mongodb://ds247670.mlab.com:47670/extension-youtube";
+const dbRoute = "mongodb://admin:admin2019@ds247670.mlab.com:47670/extension-youtube";
 const cors = require('cors')
 const Route = require('./router');
 mongoose.connect(
@@ -18,7 +18,7 @@ mongoose.connect(
 
 let db = mongoose.connection;
 
-db.once("open", () => console.log("connected to the database"));
+db.once("open", () => console.log("connected to the database", dbRoute));
 
 // checks if connection with the database is successful
 db.on("error", console.error.bind(console, "MongoDB connection error:"));

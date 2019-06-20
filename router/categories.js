@@ -5,6 +5,7 @@ const router = new Router();
 
 
 router.post('/create', function(req, res) {
+    let entity = req.body;
     Categories.insertMany(entity, function(err, result) {
         if(err) {
             res.json({success: false, err: err, data: null, message: err.message})
